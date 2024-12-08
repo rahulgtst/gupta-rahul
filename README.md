@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React and Tailwind CSS. This p
 
 ## 🚀 Live Demo
 
-Visit the live website: [Rahul Gupta's Portfolio](https://rahulgtst.github.io/)
+Visit the live website: [Rahul Gupta's Portfolio](https://gupta-rahul.vercel.app/)
 
 ## ✨ Features
 
