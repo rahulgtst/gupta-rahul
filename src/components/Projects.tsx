@@ -2,8 +2,9 @@ import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import TaskMaster from '../images/TaskMaster.png';
 import RPSDuel from '../images/RPSDuel.png';
+import { Project } from "../types/index.ts";
 
-const projectsData = [
+const projectsData: Project[] = [
   {
     id: 1,
     title: "TaskMaster",

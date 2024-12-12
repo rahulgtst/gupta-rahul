@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 export interface Project {
   id: number;
   title: string;
@@ -11,6 +13,5 @@ export interface Project {
 export interface Skill {
   id: number;
   name: string;
-  icon: string;
-  category: 'frontend' | 'backend' | 'tools';
+  icon: ReactElement;
 } 
