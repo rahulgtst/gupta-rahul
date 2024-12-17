@@ -1,24 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formRef.current) return;
-
-    setIsSubmitting(true);
-    try {
-      // Add your form submission logic here
-      setSubmitStatus('success');
-      formRef.current.reset();
-    } catch (error) {
-      setSubmitStatus('error');
-    }
-    setIsSubmitting(false);
-  };
+  const [state, handleSubmit] = useForm("xdkorlkr");
 
   return (
     <section className="py-20 bg-primary" id="contact">
@@ -33,7 +17,7 @@ const Contact = () => {
           </p>
         </div>
         <div className="max-w-2xl mx-auto bg-white/10 p-8 rounded-xl backdrop-blur-sm">
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-white mb-2 font-medium">What's your name?</label>
               <input
@@ -48,12 +32,17 @@ const Contact = () => {
             <div>
               <label htmlFor="email" className="block text-white mb-2 font-medium">Where can I reach you?</label>
               <input
-                type="email"
                 id="email"
+                type="email"
                 name="email"
                 required
                 placeholder="john@example.com"
                 className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white/20 text-white border border-white/30 placeholder-gray-300"
+              />
+              <ValidationError 
+                prefix="Email" 
+                field="email"
+                errors={state.errors}
               />
             </div>
             <div>
@@ -65,21 +54,26 @@ const Contact = () => {
                 rows={5}
                 placeholder="Tell me about your project, goals, and timeline..."
                 className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white/20 text-white border border-white/30 placeholder-gray-300"
-              ></textarea>
+              />
+              <ValidationError 
+                prefix="Message" 
+                field="message"
+                errors={state.errors}
+              />
             </div>
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={state.submitting}
               className="w-full bg-secondary text-white py-4 rounded-lg font-bold hover:bg-secondary/90 transition-colors disabled:opacity-50 text-lg"
             >
-              {isSubmitting ? 'Sending...' : "Let's Start a Conversation"}
+              {state.submitting ? 'Sending...' : "Let's Start a Conversation"}
             </button>
-            {submitStatus === 'success' && (
+            {state.succeeded && (
               <p className="text-green-400 text-center font-medium">
                 Thanks for reaching out! I'll get back to you soon. 🚀
               </p>
             )}
-            {submitStatus === 'error' && (
+            {state.errors && Object.keys(state.errors).length > 0 && (
               <p className="text-red-400 text-center font-medium">
                 Oops! Something went wrong. Please try again or email me directly.
               </p>
