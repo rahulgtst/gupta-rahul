@@ -1,6 +1,21 @@
 import React from 'react';
 import ProfilePic from '../images/ProfilePic.png'; 
 
+const calculateYOE = (startDateStr) => {
+  const startDate = new Date(startDateStr);
+  const now = new Date();
+
+  let years = now.getFullYear() - startDate.getFullYear();
+  let months = now.getMonth() - startDate.getMonth();
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  return months === 0 ? `${years} Years` : `${years} Years, ${months} Months`;
+};
+
 const About = () => {
   return (
     <section className="py-20 bg-white" id="about">
@@ -22,12 +37,19 @@ const About = () => {
               </div>
             </div>
             
-            <div className="bg-gray-50 p-8 rounded-xl">
-              <h3 className="text-2xl font-bold text-primary mb-4">Quick Facts</h3>
+            <div className="bg-green-50 p-8 rounded-xl">
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>My name is Rahul Gupta. Based in Delhi, India</span>
+                  <span>My name is Rahul Gupta. Based in Bengaluru, India</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-secondary mr-2">▹</span>
+                  <span>Current Position: SDE-1 @Pococare</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-secondary mr-2">▹</span>
+                  <span>Total Experience: {calculateYOE("2024-02-19")}</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
@@ -35,15 +57,11 @@ const About = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>Software Engineer @ Misemind Technologies</span>
+                  <span>LeetCode 500+ Questions Solved, Contest Rating 1500+</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>LeetCode 450+ Questions Solved, Contest Rating 1500+</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-secondary mr-2">▹</span>
-                  <span>Passionate about Tech, Coding, and Anime</span>
+                  <span>Passionate about Tech, Coding, and Psychology</span>
                 </li>
               </ul>
             </div>
