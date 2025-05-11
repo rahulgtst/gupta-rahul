@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { NavLink } from "react-router";
 import Social from "./Social";
+import Logo from "../images/Logo.png";
 
 const Contact = () => {
   const [state, handleSubmit] = useForm("xdkorlkr");
+
+  useEffect(() => {
+    document.title = 'Contact | Rahul Gupta';
+  }, []);
 
   return (
     <section
@@ -17,10 +23,11 @@ const Contact = () => {
 
           {/* Left content (text) */}
           <div className="text-black space-y-6 pr-5">
+            <img src={Logo} alt="Logo" width={50}/>
             <h3 className="text-2xl font-bold mb-4">Let's Get in Touch</h3>
             <p className="text-lg text-black-100 max-w-2xl mx-auto">
-              I'd love to hear from you! Please fill out the form below with any
-              relevant details, and I'll get back to you as soon as possible.
+              I'd love to hear from you! Please fill out the form with every mandatory
+              & relevant details, and I'll get back to you as soon as possible.
             </p>
             <Social bg="light" />
             <div className="pt-4">
