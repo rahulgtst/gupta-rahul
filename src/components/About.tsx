@@ -22,7 +22,7 @@ const About = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-heading font-bold text-primary mb-6 text-center">
-            About Me 👨‍💻
+            About Me
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -38,10 +38,10 @@ const About = () => {
             </div>
             
             <div className="bg-green-50 p-8 rounded-xl">
-              <ul className="space-y-4">
+              <ul className="space-y-4 font-body">
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>My name is Rahul Gupta. Based in Bengaluru, India</span>
+                  <span>My name is Rahul Gupta, & I'm based in Bengaluru, India.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
@@ -53,15 +53,15 @@ const About = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>B-Tech Graduate from Delhi Technological University (DTU)</span>
+                  <span>B.Tech graduate from Delhi Technological University (DTU)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>LeetCode 500+ Questions Solved, Contest Rating 1500+</span>
+                  <span>Solved 500+ questions on LeetCode with a contest rating 1560</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>Passionate about Tech, Coding, and Psychology</span>
+                  <span>Passionate about Tech, Coding, & Psychology</span>
                 </li>
               </ul>
             </div>
