@@ -3,6 +3,16 @@ import React from 'react';
 const Experience = () => {
   const experiences = [
     {
+      company: "Rajkiya Partibha Vikas Vidalaya",
+      position: "9th - 12th",
+      period: "May, 2015 - March, 2019",
+    },
+    {
+      company: "Delhi Technological University",
+      position: "B.Tech",
+      period: "August, 2019 - July, 2023"
+    },
+    {
       company: "Misemind Technologies",
       position: "Software Engineer",
       period: "Feb, 2024 - April, 2025",
@@ -20,10 +30,10 @@ const Experience = () => {
     <section className="py-20 bg-white" id="experience">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-heading font-bold text-primary mb-16 text-center">
-          Work Experience 💼
+          Education & Work Experience
         </h2>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto font-body">
           {/* Center vertical timeline line */}
           <div className="absolute left-1/2 top-0 h-full w-1 bg-secondary transform -translate-x-1/2 z-0" />
 
@@ -57,7 +67,7 @@ const Experience = () => {
                     {exp.position}
                   </h4>
                   <p className="text-sm text-gray-600 mb-2">{exp.period}</p>
-                  <p className="text-sm text-gray-600">Tech Stack: {exp.techStack?.join(', ')}</p>
+                  {exp?.techStack && <p className="text-sm text-gray-600">Tech Stack: {exp.techStack?.join(', ')}</p>}
                 </div>
               </div>
             );
