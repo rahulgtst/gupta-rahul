@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaAngular } from 'react-icons/fa';
-import { SiTailwindcss, SiCplusplus, SiGit, SiGithub, SiVisualstudiocode, SiTypescript, SiExpress, SiMongodb, SiMysql } from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaAngular, FaAws } from 'react-icons/fa';
+import { SiCplusplus, SiGit, SiGithub, SiTypescript, SiExpress, SiMongodb, SiMysql } from 'react-icons/si';
 import { FcLinux } from 'react-icons/fc';
 import { Skill } from '../types';
 
@@ -18,26 +18,22 @@ const Skills = () => {
     { id: 10, name: 'Python', icon: <FaPython className="text-[#3776AB] text-5xl" /> },
     { id: 11, name: 'C++', icon: <SiCplusplus className="text-[#00599C] text-5xl" /> },
     { id: 12, name: 'SQL', icon: <SiMysql className="text-[#00599C] text-5xl" /> },
-    { id: 13, name: 'Tailwind CSS', icon: <SiTailwindcss className="text-[#06B6D4] text-5xl" /> },
-    { id: 14, name: 'Git', icon: <SiGit className="text-[#F05032] text-5xl" /> },
-    { id: 15, name: 'GitHub', icon: <SiGithub className="text-[#181717] text-5xl" /> },
-    { id: 16, name: 'VS Code', icon: <SiVisualstudiocode className="text-[#007ACC] text-5xl" /> },
-    { id: 17, name: 'Linux', icon: <FcLinux className="text-[#FCC624] text-5xl" /> },
+    { id: 13, name: 'Git', icon: <SiGit className="text-[#F05032] text-5xl" /> },
+    { id: 14, name: 'GitHub', icon: <SiGithub className="text-[#181717] text-5xl" /> },
+    { id: 15, name: 'Linux', icon: <FcLinux className="text-[#FCC624] text-5xl" /> },
+    { id: 16, name: 'AWS', icon: <FaAws className="text-[#181717] text-5xl" /> },
   ];
 
   return (
-    <section className="py-20 bg-gray-50" id="skills">
+    <section className="py-20 bg-gray-100" id="skills">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-heading font-bold text-primary mb-4">
-            My Skills 🛠️
+            Technologies & tools
           </h2>
-          <p className="text-lg text-gray-800 max-w-2xl mx-auto">
-            Technologies and tools I use to bring ideas to life
-          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto font-body">
           {skillsList.map((skill, index) => (
             <div 
               key={index}

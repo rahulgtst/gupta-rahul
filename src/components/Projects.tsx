@@ -8,7 +8,7 @@ const projectsData: Project[] = [
   {
     id: 1,
     title: "TaskMaster",
-    description: "A Todo web app with full CRUD capabilities, dual-theme support, and responsive design. Built with ReactJS and Tailwind CSS for optimal performance and user experience.",
+    description: "A Todo web app with full CRUD capabilities, dual-theme support, & responsive design. Built with ReactJS & Tailwind CSS for optimal performance & user experience.",
     image: TaskMaster,
     technologies: ["React.js", "Tailwind CSS", "REST API", "Dark Mode"],
     githubUrl: "https://github.com/rahulgtst/TaskMaster",
@@ -17,7 +17,7 @@ const projectsData: Project[] = [
   {
     id: 2,
     title: "RPSDuel",
-    description: "An interactive Rock-Paper-Scissors game featuring dynamic feedback and smooth animations. Built with modern web technologies for an engaging gaming experience.",
+    description: "An interactive Rock-Paper-Scissors game featuring dynamic feedback & smooth animations. Built with modern web technologies for an engaging gaming experience.",
     image: RPSDuel,
     technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
     githubUrl: "https://github.com/rahulgtst/RPSDuel",
@@ -26,7 +26,7 @@ const projectsData: Project[] = [
   // {
   //   id: 3,
   //   title: "CrypTrec",
-  //   description: "A high-performance parallel file encryption system built in C++. Utilizes multi-threading for fast and secure file encryption operations.",
+  //   description: "A high-performance parallel file encryption system built in C++. Utilizes multi-threading for fast & secure file encryption operations.",
   //   image: "/projects/cryptrec.png",
   //   technologies: ["C++", "Multi-threading", "File Systems", "Encryption"],
   //   githubUrl: "https://github.com/rahulgtst/cryptrec",
@@ -39,9 +39,9 @@ const Projects = () => {
     <section className="py-20 bg-white" id="projects">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-heading font-bold text-primary mb-12 text-center">
-          Featured Projects 🚀
+          Recent Work
         </h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto font-body">
           {projectsData.map((project) => (
             <div
               key={project.id}
