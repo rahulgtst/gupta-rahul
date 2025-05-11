@@ -1,25 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 const ScrollToTop = () => {
   const [showButton, setShowButton] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+  
     const handleScroll = () => {
-      const winScroll = document.documentElement.scrollTop;
-      const height = 
-        document.documentElement.scrollHeight - 
-        document.documentElement.clientHeight;
-      
-      const scrolled = (winScroll / height) * 100;
-      
-      setScrollProgress(scrolled);
-      setShowButton(winScroll > 300);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const winScroll = document.documentElement.scrollTop;
+          const height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+  
+          const scrolled = (winScroll / height) * 100;
+  
+          setScrollProgress(scrolled);
+          setShowButton(winScroll > 300);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-
+  
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, []);  
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -27,6 +35,11 @@ const ScrollToTop = () => {
       behavior: 'smooth'
     });
   };
+
+  const strokeOffset = useMemo(
+    () => 264 - (264 * scrollProgress) / 100,
+    [scrollProgress]
+  );  
 
   return (
     <button
@@ -53,7 +66,7 @@ const ScrollToTop = () => {
           className="text-white transition-all duration-300"
           strokeWidth="8"
           strokeDasharray={264}
-          strokeDashoffset={264 - (264 * scrollProgress) / 100}
+          strokeDashoffset={strokeOffset}
           strokeLinecap="round"
           stroke="currentColor"
           fill="transparent"
