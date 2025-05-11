@@ -1,12 +1,6 @@
-import React from 'react';
+import { NavLink } from "react-router";
 
 const Home = () => {
-  const scrollToBottom = () => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth'
-    });
-  };
 
   return (
     <section 
@@ -30,11 +24,10 @@ const Home = () => {
           Building impactful solutions, diving into new technologies & always learning new things.
         </p>
         
-        <button 
-          onClick={scrollToBottom}
+        <button
           className="inline-block bg-secondary text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-secondary/90 transition-colors"
         >
-          Let's Connect
+          <NavLink to={'/contact'} end>Let's Connect</NavLink>
         </button>
       </div>
     </section>
