@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 
-const Home = () => {
+const Intro = () => {
 
   return (
     <section 
@@ -34,4 +34,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Intro; 

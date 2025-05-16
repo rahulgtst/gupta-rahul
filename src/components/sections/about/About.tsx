@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfilePic from '../images/ProfilePic.png'; 
+import ProfilePic from '../../../assets/images/ProfilePic.png'; 
 
 const calculateYOE = (startDateStr) => {
   const startDate = new Date(startDateStr);

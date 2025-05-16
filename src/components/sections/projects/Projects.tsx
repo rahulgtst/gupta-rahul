@@ -1,38 +1,5 @@
-import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import TaskMaster from '../images/TaskMaster.png';
-import RPSDuel from '../images/RPSDuel.png';
-import { Project } from "../types/index.ts";
-
-const projectsData: Project[] = [
-  {
-    id: 1,
-    title: "TaskMaster",
-    description: "A Todo web app with full CRUD capabilities, dual-theme support, & responsive design. Built with ReactJS & Tailwind CSS for optimal performance & user experience.",
-    image: TaskMaster,
-    technologies: ["React.js", "Tailwind CSS", "REST API", "Dark Mode"],
-    githubUrl: "https://github.com/rahulgtst/TaskMaster",
-    liveUrl: "https://todo-tau-murex.vercel.app/"
-  },
-  {
-    id: 2,
-    title: "RPSDuel",
-    description: "An interactive Rock-Paper-Scissors game featuring dynamic feedback & smooth animations. Built with modern web technologies for an engaging gaming experience.",
-    image: RPSDuel,
-    technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
-    githubUrl: "https://github.com/rahulgtst/RPSDuel",
-    liveUrl: "https://rahulgtst.github.io/RPSDuel/"
-  },
-  // {
-  //   id: 3,
-  //   title: "CrypTrec",
-  //   description: "A high-performance parallel file encryption system built in C++. Utilizes multi-threading for fast & secure file encryption operations.",
-  //   image: "/projects/cryptrec.png",
-  //   technologies: ["C++", "Multi-threading", "File Systems", "Encryption"],
-  //   githubUrl: "https://github.com/rahulgtst/cryptrec",
-  //   liveUrl: null
-  // }
-];
+import { ProjectsData } from '../../../constants/Projects.ts';
 
 const Projects = () => {
   return (
@@ -42,7 +9,7 @@ const Projects = () => {
           Recent Work
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto font-body">
-          {projectsData.map((project) => (
+          {ProjectsData.map((project) => (
             <div
               key={project.id}
               className="group relative rounded-xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300"

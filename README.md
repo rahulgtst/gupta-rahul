@@ -14,7 +14,7 @@ Visit the live website: [Rahul Gupta's Portfolio](https://gupta-rahul.vercel.app
 - 📊 Interactive project cards
 - 💼 Professional experience timeline
 - 🛠️ Skills showcase with icons
-<!-- - 📬 Contact form -->
+- 📬 Contact form
 - ⚡ Fast loading times
 - 🔝 Scroll to top with progress indicator
 
@@ -25,7 +25,9 @@ Visit the live website: [Rahul Gupta's Portfolio](https://gupta-rahul.vercel.app
 - TypeScript
 - React Icons
 
-## 🏗️ Project Structure 
+## 🏗️ Project Structure
+
+```
 
 src/
 ├── components/
@@ -41,11 +43,18 @@ src/
 │ ├── ProfilePic.png
 │ ├── TaskMaster.png
 │ └── RPSDuel.png
+├── types/
+| └── index.ts
 └── App.tsx
+└── index.tsx
+└── index.css
+
+```
 
 ## 👤 Author
 
 **Rahul Gupta**
+
 - GitHub: [@rahulgtst](https://github.com/rahulgtst)
 - LinkedIn: [Rahul Gupta](https://www.linkedin.com/in/rahulgtst)
 
