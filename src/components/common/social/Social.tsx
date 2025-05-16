@@ -1,14 +1,4 @@
-import React from 'react';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import { FaTwitter } from 'react-icons/fa6';
-import { SiLeetcode } from 'react-icons/si';
-
-const socialLinks = [
-  { href: 'https://github.com/rahulgtst', Icon: FaGithub },
-  { href: 'https://linkedin.com/in/rhlgt', Icon: FaLinkedinIn },
-  { href: 'https://twitter.com/rahulgtst', Icon: FaTwitter },
-  { href: 'https://leetcode.com/u/rahulgtst', Icon: SiLeetcode },
-];
+import { SocialData } from "../../../constants/Social.ts";
 
 const Social = ({ bg = 'dark', className = '' }) => {
   const isLight = bg === 'light';
@@ -26,7 +16,7 @@ const Social = ({ bg = 'dark', className = '' }) => {
 
   return (
     <div className={`flex space-x-4 ${className}`}>
-      {socialLinks.map(({ href, Icon }, index) => (
+      {SocialData.map(({ href, Icon }, index) => (
         <a
           key={index}
           href={href}

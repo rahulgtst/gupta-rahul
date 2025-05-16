@@ -1,5 +1,3 @@
-import { ReactElement } from 'react';
-
 export interface Project {
   id: number;
   title: string;
@@ -9,9 +7,3 @@ export interface Project {
   githubUrl: string;
   liveUrl?: string;
 }
-
-export interface Skill {
-  id: number;
-  name: string;
-  icon: ReactElement;
-} 

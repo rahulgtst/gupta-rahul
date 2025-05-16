@@ -1,5 +1,5 @@
-import Social from "./Social";
-import Logo from "../images/Logo.png";
+import Social from "../social/Social.tsx";
+import Logo from "../../../assets/images/Logo.png";
 
 const Footer = () => {
   return (

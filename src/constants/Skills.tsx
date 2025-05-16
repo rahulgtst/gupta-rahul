@@ -1,11 +1,9 @@
-import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaAngular, FaAws } from 'react-icons/fa';
 import { SiCplusplus, SiGit, SiGithub, SiTypescript, SiExpress, SiMongodb, SiMysql } from 'react-icons/si';
 import { FcLinux } from 'react-icons/fc';
-import { Skill } from '../types';
+import { Skill } from '../types/Skill.ts';
 
-const Skills = () => {
-  const skillsList: Skill[] = [
+export const SkillsData: Skill[] = [
     { id: 1, name: 'HTML', icon: <FaHtml5 className="text-[#E34F26] text-5xl" /> },
     { id: 2, name: 'CSS', icon: <FaCss3Alt className="text-[#1572B6] text-5xl" /> },
     { id: 3, name: 'JavaScript', icon: <FaJs className="text-[#F7DF1E] text-5xl" /> },
@@ -22,31 +20,4 @@ const Skills = () => {
     { id: 14, name: 'GitHub', icon: <SiGithub className="text-[#181717] text-5xl" /> },
     { id: 15, name: 'Linux', icon: <FcLinux className="text-[#FCC624] text-5xl" /> },
     { id: 16, name: 'AWS', icon: <FaAws className="text-[#181717] text-5xl" /> },
-  ];
-
-  return (
-    <section className="py-20 bg-gray-100" id="skills">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-heading font-bold text-primary mb-4">
-            Technologies & tools
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto font-body">
-          {skillsList.map((skill, index) => (
-            <div 
-              key={index}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center gap-4 hover:-translate-y-1"
-            >
-              {skill.icon}
-              <h3 className="text-lg font-medium text-gray-800">{skill.name}</h3>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Skills; 
+];

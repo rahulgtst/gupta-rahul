@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { NavLink } from "react-router";
-import Social from "./Social";
-import Logo from "../images/Logo.png";
+import Social from "../components/common/social/Social.tsx";
+import Logo from "../assets/images/Logo.png";
 
 const Contact = () => {
   const [state, handleSubmit] = useForm("xdkorlkr");
