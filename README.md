@@ -1,10 +1,10 @@
 # Personal Portfolio Website
 
-A modern, responsive portfolio website built with React and Tailwind CSS. This portfolio showcases my projects, skills, and professional experience.
+A modern, responsive portfolio website built with React and Tailwind CSS. This portfolio showcases my projects, skills, and professional experience. Please replace my social links with yours, if you're using the code.
 
 ## 🚀 Live Demo
 
-Visit the live website: [Rahul Gupta's Portfolio](https://gupta-rahul.vercel.app/)
+Visit the live website: [Live Link](https://gupta-rahul.vercel.app/)
 
 ## ✨ Features
 
@@ -28,35 +28,35 @@ Visit the live website: [Rahul Gupta's Portfolio](https://gupta-rahul.vercel.app
 ## 🏗️ Project Structure
 
 ```
-
-src/
-├── components/
-│ ├── Home.tsx
-│ ├── About.tsx
-│ ├── Experience.tsx
-│ ├── Projects.tsx
-│ ├── Skills.tsx
-│ ├── Contact.tsx
-│ ├── Footer.tsx
-│ └── ScrollToTop.tsx
-├── images/
-│ ├── ProfilePic.png
-│ ├── TaskMaster.png
-│ └── RPSDuel.png
-├── types/
-| └── index.ts
-└── App.tsx
-└── index.tsx
-└── index.css
+📦 src
+├── 📄 app.tsx
+├── 📄 index.tsx
+├── 📄 index.css
+├── 📄 image.d.ts
+├── 📁 assets
+│   └── 📁 images
+├── 📁 components
+│   ├── 📁 common
+│   └── 📁 sections
+├── 📁 pages
+├── 📁 types
+├── 📁 constants
 
 ```
+
+- `assets/images/`: Images used throughout the application.
+- `components/common/`: Reusable components like Button, Input, etc.
+- `components/sections/`: Feature-specific components split by sections.
+- `pages/`: Top-level route components.
+- `types/`: TypeScript type definitions.
+- `constants/`: Static data throughout the app.
 
 ## 👤 Author
 
 **Rahul Gupta**
 
 - GitHub: [@rahulgtst](https://github.com/rahulgtst)
-- LinkedIn: [Rahul Gupta](https://www.linkedin.com/in/rahulgtst)
+- LinkedIn: [@rhlgt](https://www.linkedin.com/in/rahulgtst)
 
 ## 🙏 Acknowledgments
 
