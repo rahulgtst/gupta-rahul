@@ -1,23 +1,31 @@
-import Home from './components/Home.tsx';
-import About from './components/About.tsx';
-import Experience from './components/Experience.tsx';
-import Projects from './components/Projects.tsx';
-import Skills from './components/Skills.tsx';
-import Footer from './components/Footer.tsx';
-import ScrollToTop from './components/ScrollToTop.tsx';
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Home from './pages/Home.tsx';
+import Contact from './pages/Contact.tsx';
 
 const App = () => {
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/png';
+    link.href = 'Logo.png';
+
+    // Remove old favicon if it exists
+    const oldLink = document.querySelector("link[rel='icon']");
+    if (oldLink) {
+      document.head.removeChild(oldLink);
+    }
+
+    document.head.appendChild(link);
+  }, []);
   return (
     <div className="min-h-screen">  
-      <main>
-        <Home />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Footer />
-        <ScrollToTop />
-      </main>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path='contact' element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
