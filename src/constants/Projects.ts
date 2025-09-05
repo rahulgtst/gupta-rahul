@@ -14,7 +14,9 @@ export const ProjectsData: Project[] = [
     image: GR,
     technologies: ["React", "TypeScript", "Tailwind CSS"],
     githubUrl: "https://github.com/rahulgtst/gupta-rahul",
-    liveUrl: "https://gupta-rahul.vercel.app/"
+    liveUrl: "https://gupta-rahul.vercel.app/",
+    status: "In Progress",
+    featured: true
   },
   {
     id: 2,
@@ -23,7 +25,9 @@ export const ProjectsData: Project[] = [
     image: TaskMaster,
     technologies: ["React.js", "Tailwind CSS", "REST API", "Dark Mode"],
     githubUrl: "https://github.com/rahulgtst/TaskMaster",
-    liveUrl: "https://todo-tau-murex.vercel.app/"
+    liveUrl: "https://todo-tau-murex.vercel.app/",
+    status: "Completed",
+    featured: true
   },
   {
     id: 3,
@@ -32,7 +36,9 @@ export const ProjectsData: Project[] = [
     image: RPSDuel,
     technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
     githubUrl: "https://github.com/rahulgtst/RPSDuel",
-    liveUrl: "https://rahulgtst.github.io/RPSDuel/"
+    liveUrl: "https://rahulgtst.github.io/RPSDuel/",
+    status: "Completed",
+    featured: false
   },
   {
     id: 4,
@@ -41,7 +47,9 @@ export const ProjectsData: Project[] = [
     image: AIT,
     technologies: ["HTML", "CSS", "JavaScript"],
     githubUrl: "https://github.com/rahulgtst/algoisit",
-    liveUrl: "https://rahulgtst.github.io/algoisit/"
+    liveUrl: "https://rahulgtst.github.io/algoisit/",
+    status: "Completed",
+    featured: false
   },
   {
     id: 5,
@@ -50,7 +58,9 @@ export const ProjectsData: Project[] = [
     image: GA,
     technologies: ["HTML", "CSS", "JavaScript"],
     githubUrl: "https://github.com/rahulgtst/get-advice",
-    liveUrl: "https://rahulgtst.github.io/get-advice/"
+    liveUrl: "https://rahulgtst.github.io/get-advice/",
+    status: "Completed",
+    featured: false
   },
   {
     id: 6,
@@ -59,6 +69,8 @@ export const ProjectsData: Project[] = [
     image: RPG,
     technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
     githubUrl: "https://github.com/rahulgtst/random-password-generator",
-    liveUrl: "https://random-password-generator-bice.vercel.app/"
+    liveUrl: "https://random-password-generator-bice.vercel.app/",
+    status: "Completed",
+    featured: false
   },
 ];
