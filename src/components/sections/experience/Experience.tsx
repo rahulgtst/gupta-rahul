@@ -1,30 +1,14 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { SkillIcons } from '../../../constants/Skills.tsx';
+import { fetchExperiences } from '../../../api/fetchExperiences.ts';
 
 const Experience = () => {
-  const experiences = [
-    {
-      company: "Rajkiya Partibha Vikas Vidalaya",
-      position: "9th - 12th",
-      period: "May, 2015 - March, 2019",
-    },
-    {
-      company: "Delhi Technological University",
-      position: "B.Tech",
-      period: "August, 2019 - July, 2023"
-    },
-    {
-      company: "Misemind Technologies",
-      position: "Software Engineer",
-      period: "Feb, 2024 - April, 2025",
-      techStack: ["JavaScript", "TypeScript", "Python", "SQL", "Angular", "Node.js", "Express.js", "MongoDB", "AWS"],
-    },
-    {
-      company: "Pococare",
-      position: "SDE I",
-      period: "May, 2025 - Present",
-      techStack: ["JavaScript", "TypeScript", "React", "Node.js", "Express.js", "Nest.js", "MongoDB"],
-    },
-  ];
+  const [experiences, setExperiences] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetchExperiences().then((data) => setExperiences(data));
+    console.log(experiences);
+  }, []);
 
   return (
     <section className="py-20 bg-white" id="experience">
@@ -43,9 +27,8 @@ const Experience = () => {
             return (
               <div
                 key={index}
-                className={`mb-12 flex justify-between items-start ${
-                  isLeft ? "flex-row" : "flex-row-reverse"
-                } relative z-10`}
+                className={`mb-12 flex justify-between items-start ${isLeft ? "flex-row" : "flex-row-reverse"
+                  } relative z-10`}
               >
                 {/* Spacer for alternate layout */}
                 <div className="w-5/12" />
@@ -67,7 +50,9 @@ const Experience = () => {
                     {exp.position}
                   </h4>
                   <p className="text-sm text-gray-600 mb-2">{exp.period}</p>
-                  {exp?.techStack && <p className="text-sm text-gray-600">Tech Stack: {exp.techStack?.join(', ')}</p>}
+                  {exp?.techStack && <p className="flex flex-wrap items-center justify-start gap-2">Tech Stack: {exp.techStack.map((tech) => {
+                    return <span className='text-3xl' key={tech}>{SkillIcons[tech]}</span>
+                  })}</p>}
                 </div>
               </div>
             );
