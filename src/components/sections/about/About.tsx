@@ -1,5 +1,4 @@
 import React from 'react';
-import ProfilePic from '../../../assets/images/ProfilePic.png'; 
 
 const calculateYOE = (startDateStr) => {
   const startDate = new Date(startDateStr);
@@ -18,25 +17,25 @@ const calculateYOE = (startDateStr) => {
 
 const About = () => {
   return (
-    <section className="py-20 bg-white" id="about">
+    <section className="py-20 bg-gray-100" id="about">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-heading font-bold text-primary mb-6 text-center">
             About Me
           </h2>
-          
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center">
               <div className="relative w-full max-w-sm">
-                <img 
-                  src={ProfilePic} 
-                  alt="Coding Animation" 
+                <img
+                  src={process.env.REACT_APP_PROFILE_PIC}
+                  alt="Coding Animation"
                   className="w-full h-auto rounded-xl shadow-lg"
                 />
                 <div className="absolute -z-10 top-4 left-4 w-full h-full bg-secondary/20 rounded-xl"></div>
               </div>
             </div>
-            
+
             <div className="bg-green-50 p-8 rounded-xl">
               <ul className="space-y-4 font-body">
                 <li className="flex items-start">
