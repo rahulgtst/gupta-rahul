@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { NavLink } from "react-router";
 import Social from "../components/common/social/Social.tsx";
-import Logo from "../assets/images/Logo.png";
 
 const Contact = () => {
-  const [state, handleSubmit] = useForm("xdkorlkr");
+  const formId = process.env.REACT_APP_FORM_ID || '';
+  const [state, handleSubmit] = useForm(formId);
 
   useEffect(() => {
     document.title = 'Contact | Rahul Gupta';
@@ -23,7 +23,7 @@ const Contact = () => {
 
           {/* Left content (text) */}
           <div className="text-black space-y-6 pr-5">
-            <img src={Logo} alt="Logo" width={50}/>
+            <img src={process.env.REACT_APP_LOGO_URL} alt="Logo" width={50} />
             <h3 className="text-2xl font-bold mb-4">Let's Get in Touch</h3>
             <p className="text-lg text-black-100 max-w-2xl mx-auto">
               I'd love to hear from you! Please fill out the form with every mandatory
