@@ -6,8 +6,10 @@ const Experience = () => {
   const [experiences, setExperiences] = useState<any[]>([]);
 
   useEffect(() => {
-    fetchExperiences().then((data) => setExperiences(data));
-    console.log(experiences);
+    fetchExperiences().then((data) => {
+      data = data.reverse();
+      setExperiences(data)
+    });
   }, []);
 
   return (
@@ -50,9 +52,11 @@ const Experience = () => {
                     {exp.position}
                   </h4>
                   <p className="text-sm text-gray-600 mb-2">{exp.period}</p>
-                  {exp?.techStack && <p className="flex flex-wrap items-center justify-start gap-2">Tech Stack: {exp.techStack.map((tech) => {
-                    return <span className='text-3xl' key={tech}>{SkillIcons[tech]}</span>
-                  })}</p>}
+                  {exp?.techstack && <p className="flex flex-wrap items-center justify-start gap-2">Tech Stack:
+                    {exp.techstack.map((tech) => {
+                      return <span className='text-3xl' key={tech}>{SkillIcons[tech]}</span>
+                    })}
+                  </p>}
                 </div>
               </div>
             );

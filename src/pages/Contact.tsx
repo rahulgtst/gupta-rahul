@@ -4,7 +4,8 @@ import { NavLink } from "react-router";
 import Social from "../components/common/social/Social.tsx";
 
 const Contact = () => {
-  const [state, handleSubmit] = useForm("xdkorlkr");
+  const formId = process.env.REACT_APP_FORM_ID || '';
+  const [state, handleSubmit] = useForm(formId);
 
   useEffect(() => {
     document.title = 'Contact | Rahul Gupta';

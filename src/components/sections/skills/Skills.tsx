@@ -1,7 +1,6 @@
 import { SkillIcons } from "../../../constants/Skills.tsx";
 
 const Skills = () => {
-  console.log(Object.keys(SkillIcons));
 
   return (
     <section className="py-20 bg-gray-50" id="skills">
