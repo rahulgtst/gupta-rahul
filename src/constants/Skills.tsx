@@ -19,6 +19,6 @@ export const SkillIcons: Record<string, JSX.Element> = {
     SQL: <BiLogoPostgresql className="text-[#4479A1]" />,
     Git: <SiGit className="text-[#F05032]" />,
     GitHub: <SiGithub className="text-[#181717]" />,
-    Linux: <FcLinux className="text-3xl" />,
+    Linux: <FcLinux />,
     AWS: <FaAws className="text-[#FF9900]" />,
 };
