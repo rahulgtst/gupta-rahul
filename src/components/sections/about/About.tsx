@@ -40,7 +40,7 @@ const About = () => {
               <ul className="space-y-4 font-body">
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>My name is Rahul Gupta, & I'm based in Bengaluru, India.</span>
+                  <span>My name is Rahul Gupta, & I'm based in India.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
