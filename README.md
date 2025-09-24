@@ -56,7 +56,7 @@ Visit the live website: [Live Link](https://gupta-rahul.vercel.app/)
 **Rahul Gupta**
 
 - GitHub: [@rahulgtst](https://github.com/rahulgtst)
-- LinkedIn: [@rhlgt](https://www.linkedin.com/in/rahulgtst)
+- LinkedIn: [@rahulgtst](https://www.linkedin.com/in/rahulgtst)
 
 ## 🙏 Acknowledgments
 

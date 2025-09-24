@@ -5,7 +5,7 @@ import { Social } from '../types/Social.ts';
 
 export const SocialData: Social[] = [
   { href: 'https://github.com/rahulgtst', Icon: FaGithub },
-  { href: 'https://linkedin.com/in/rhlgt', Icon: FaLinkedinIn },
+  { href: 'https://www.linkedin.com/in/rahulgtst', Icon: FaLinkedinIn },
   { href: 'https://twitter.com/rahulgtst', Icon: FaTwitter },
   { href: 'https://leetcode.com/u/rahulgtst', Icon: SiLeetcode },
 ];
