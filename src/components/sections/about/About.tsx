@@ -48,7 +48,7 @@ const About = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>Total Experience: {calculateYOE("2024-02-19")}</span>
+                  <span>Total Experience: {calculateYOE("2024-02-01")}</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
