@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Home from './pages/Home.tsx';
 import Contact from './pages/Contact.tsx';
+import { Analytics } from "@vercel/analytics/react"
 
 const App = () => {
   useEffect(() => {
@@ -19,7 +20,8 @@ const App = () => {
     document.head.appendChild(link);
   }, []);
   return (
-    <div className="min-h-screen">  
+    <div className="min-h-screen">
+      <Analytics />
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
