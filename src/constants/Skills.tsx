@@ -1,5 +1,5 @@
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaAngular, FaAws, FaJava } from 'react-icons/fa';
-import { SiGit, SiGithub, SiTypescript, SiExpress, SiMongodb } from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaAngular, FaAws, FaJava, FaAndroid } from 'react-icons/fa';
+import { SiGit, SiGithub, SiTypescript, SiExpress, SiMongodb, SiKotlin } from 'react-icons/si';
 import { FaGolang } from "react-icons/fa6";
 import { FcLinux } from 'react-icons/fc';
 import { BiLogoPostgresql } from "react-icons/bi";
@@ -21,4 +21,6 @@ export const SkillIcons: Record<string, JSX.Element> = {
     GitHub: <SiGithub className="text-[#181717]" />,
     Linux: <FcLinux />,
     AWS: <FaAws className="text-[#FF9900]" />,
+    Android: <FaAndroid className="text-[#3DDC84]" />,
+    Kotlin: <SiKotlin className="text-[#7F52FF]" />,
 };

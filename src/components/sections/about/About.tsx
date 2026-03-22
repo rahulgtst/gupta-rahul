@@ -1,6 +1,6 @@
 import React from 'react';
 
-const calculateYOE = (startDateStr) => {
+const calculateYOE = (startDateStr: string) => {
   const startDate = new Date(startDateStr);
   const now = new Date();
 
@@ -44,7 +44,7 @@ const About = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>Current Position: SDE-1 @Pococare</span>
+                  <span>Current Position: SWE at SYMX.AI</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
@@ -60,7 +60,7 @@ const About = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-secondary mr-2">▹</span>
-                  <span>Passionate about Tech, Coding, & Psychology</span>
+                  <span>Passionate about Tech, Coding, & Finance</span>
                 </li>
               </ul>
             </div>

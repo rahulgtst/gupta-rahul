@@ -41,20 +41,32 @@ const Experience = () => {
                 </div>
 
                 {/* Experience Card */}
-                <div className={`w-5/12 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow 
+                <div className={`w-5/12 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow bg-green-50 relative overflow-hidden
                   ${isLeft ? "ml-6" : "mr-6"} 
-                  bg-green-50
                 `}>
-                  <h3 className="text-xl font-bold text-primary">
-                    {exp.company}
-                  </h3>
-                  <h4 className="text-md text-secondary mb-1">
-                    {exp.position}
-                  </h4>
+                  <div className="flex items-center gap-4 mb-4">
+                    {/* Logo Box */}
+                    <div className="w-12 h-12 flex-shrink-0 bg-primary rounded-lg flex items-center justify-center text-white text-xl font-bold uppercase shadow-sm">
+                      {exp.logo ? (
+                        <img src={exp.logo} alt={`${exp.company} Logo`} className="w-full h-full object-cover rounded-lg" />
+                      ) : (
+                        exp.company.charAt(0)
+                      )}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-primary">
+                        {exp.company}
+                      </h3>
+                      <h4 className="text-md text-secondary">
+                        {exp.position}
+                      </h4>
+                    </div>
+                  </div>
+                  
                   <p className="text-sm text-gray-600 mb-2">{exp.period}</p>
-                  {exp?.techstack && <p className="flex flex-wrap items-center justify-start gap-2">Tech Stack:
-                    {exp.techstack.map((tech) => {
-                      return <span className='text-3xl' key={tech}>{SkillIcons[tech]}</span>
+                  {exp?.techstack && <p className="flex flex-wrap items-center justify-start gap-2 pt-2 border-t border-gray-200 mt-3">
+                    {exp.techstack.map((tech: string) => {
+                      return <span className='text-3xl' key={tech} title={tech}>{SkillIcons[tech]}</span>
                     })}
                   </p>}
                 </div>
