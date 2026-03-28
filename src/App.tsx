@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Home from './pages/Home.tsx';
 import Contact from './pages/Contact.tsx';
+import CursorFollower from "./components/common/cursorFollower/CursorFollower.tsx";
 import { Analytics } from "@vercel/analytics/react"
 
 const App = () => {
@@ -20,7 +21,8 @@ const App = () => {
     document.head.appendChild(link);
   }, []);
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-surface">
+      <CursorFollower />
       <Analytics />
       <BrowserRouter>
         <Routes>

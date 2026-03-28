@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { SkillIcons } from '../../../constants/Skills.tsx';
-import { fetchExperiences } from '../../../api/fetchExperiences.ts';
+import { useState, useEffect } from "react";
+import { SkillIcons } from "../../../constants/Skills.tsx";
+import { fetchExperiences } from "../../../api/fetchExperiences.ts";
 
 const Experience = () => {
   const [experiences, setExperiences] = useState<any[]>([]);
@@ -8,72 +8,71 @@ const Experience = () => {
   useEffect(() => {
     fetchExperiences().then((data) => {
       data = data.reverse();
-      setExperiences(data)
+      setExperiences(data);
     });
   }, []);
 
   return (
-    <section className="py-20 bg-white" id="experience">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-heading font-bold text-primary mb-16 text-center">
-          Education & Work Experience
+    <section className="bg-surface py-20 md:py-28" id="archive">
+      <div className="mx-auto max-w-[1400px] px-6 font-body">
+        <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-primary md:text-3xl">
+          Education &amp; experience
         </h2>
+        <p className="mt-3 max-w-2xl text-body-md text-on_surface">
+          Roles and milestones — a linear archive of where I&apos;ve built and
+          learned.
+        </p>
 
-        <div className="relative max-w-4xl mx-auto font-body">
-          {/* Center vertical timeline line */}
-          <div className="absolute left-1/2 top-0 h-full w-1 bg-secondary transform -translate-x-1/2 z-0" />
-
-          {experiences.map((exp, index) => {
-            const isLeft = index % 2 === 0;
-
-            return (
-              <div
-                key={index}
-                className={`mb-12 flex justify-between items-start ${isLeft ? "flex-row" : "flex-row-reverse"
-                  } relative z-10`}
-              >
-                {/* Spacer for alternate layout */}
-                <div className="w-5/12" />
-
-                {/* Timeline Ring Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2">
-                  <div className="w-4 h-4 border-2 border-secondary rounded-full bg-white z-10" />
-                </div>
-
-                {/* Experience Card */}
-                <div className={`w-5/12 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow bg-green-50 relative overflow-hidden
-                  ${isLeft ? "ml-6" : "mr-6"} 
-                `}>
-                  <div className="flex items-center gap-4 mb-4">
-                    {/* Logo Box */}
-                    <div className="w-12 h-12 flex-shrink-0 bg-primary rounded-lg flex items-center justify-center text-white text-xl font-bold uppercase shadow-sm">
-                      {exp.logo ? (
-                        <img src={exp.logo} alt={`${exp.company} Logo`} className="w-full h-full object-cover rounded-lg" />
-                      ) : (
-                        exp.company.charAt(0)
-                      )}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-primary">
-                        {exp.company}
-                      </h3>
-                      <h4 className="text-md text-secondary">
-                        {exp.position}
-                      </h4>
-                    </div>
+        <ul className="mt-14 space-y-4">
+          {experiences.map((exp, index) => (
+            <li
+              key={index}
+              className="bg-surface_container_low p-6 transition-colors duration-button hover:bg-surface_container_high md:p-8"
+            >
+              <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                <div className="flex gap-4 md:max-w-[65%]">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-surface_container_highest font-display text-lg font-bold text-primary">
+                    {exp.logo ? (
+                      <img
+                        src={exp.logo}
+                        alt=""
+                        className="h-full w-full object-cover grayscale"
+                      />
+                    ) : (
+                      <span>{exp.company?.charAt(0)}</span>
+                    )}
                   </div>
-                  
-                  <p className="text-sm text-gray-600 mb-2">{exp.period}</p>
-                  {exp?.techstack && <p className="flex flex-wrap items-center justify-start gap-2 pt-2 border-t border-gray-200 mt-3">
-                    {exp.techstack.map((tech: string) => {
-                      return <span className='text-3xl' key={tech} title={tech}>{SkillIcons[tech]}</span>
-                    })}
-                  </p>}
+                  <div>
+                    <h3 className="font-display text-lg font-semibold uppercase tracking-tight text-primary">
+                      {exp.company}
+                    </h3>
+                    <p className="mt-1 text-body-md text-on_surface">
+                      {exp.position}
+                    </p>
+                    <p className="mt-2 text-label-md text-outline">
+                      {exp.period}
+                    </p>
+                  </div>
                 </div>
+                {exp?.techstack?.length ? (
+                  <div className="flex flex-wrap items-center gap-3 md:justify-end">
+                    {exp.techstack.map((tech: string) => (
+                      <span
+                        key={tech}
+                        className="flex items-center text-xl text-on_surface [&_svg]:text-current"
+                        title={tech}
+                      >
+                        {SkillIcons[tech] ?? (
+                          <span className="text-label-md">{tech}</span>
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
               </div>
-            );
-          })}
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
