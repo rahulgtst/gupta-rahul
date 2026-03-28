@@ -1,33 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: theme('fontFamily.body');
+    background-color: theme('colors.surface');
+    color: theme('colors.on_surface');
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.outline_variant') theme('colors.surface');
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
+@layer utilities {
+  .hero-grid-bg {
+    background-color: theme('colors.surface');
+    background-image:
+      linear-gradient(
+        to right,
+        theme('colors.outline_variant') / 0.12 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        theme('colors.outline_variant') / 0.12 1px,
+        transparent 1px
+      );
+    background-size: 48px 48px;
+  }
 
-.font-heading {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
+  .hero-depth {
+    background:
+      radial-gradient(
+        ellipse 120% 80% at 70% 20%,
+        theme('colors.primary_container') / 0.14,
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 80% 60% at 10% 90%,
+        theme('colors.primary') / 0.06,
+        transparent 50%
+      );
+  }
 
-.font-body {
-  font-family: "Share Tech", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+  .ghost-border {
+    box-shadow: inset 0 0 0 1px theme('colors.outline_variant' / 0.2);
+  }
 
-.light-icon {
-  filter: invert(1);
+  .link-underline {
+    @apply underline decoration-primary underline-offset-4 transition-colors duration-button;
+  }
+
+  .link-underline:hover {
+    @apply no-underline;
+  }
 }

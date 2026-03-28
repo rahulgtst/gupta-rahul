@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from "react";
 
 const ScrollToTop = () => {
   const [showButton, setShowButton] = useState(false);
@@ -6,7 +6,7 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     let ticking = false;
-  
+
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -14,9 +14,9 @@ const ScrollToTop = () => {
           const height =
             document.documentElement.scrollHeight -
             document.documentElement.clientHeight;
-  
-          const scrolled = (winScroll / height) * 100;
-  
+
+          const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+
           setScrollProgress(scrolled);
           setShowButton(winScroll > 300);
           ticking = false;
@@ -24,37 +24,36 @@ const ScrollToTop = () => {
         ticking = true;
       }
     };
-  
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);  
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
   const strokeOffset = useMemo(
     () => 264 - (264 * scrollProgress) / 100,
     [scrollProgress]
-  );  
+  );
 
   return (
     <button
-      className={`fixed bottom-8 right-8 w-12 h-12 bg-secondary rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 z-50 ${
-        showButton ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+      type="button"
+      className={`fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center bg-primary text-on_primary rounded-full transition-all duration-300 hover:bg-primary_fixed ${
+        showButton ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-16 opacity-0"
       }`}
       onClick={scrollToTop}
       aria-label="Scroll to top"
     >
-      <svg
-        className="absolute w-full h-full -rotate-90"
-        viewBox="0 0 100 100"
-      >
+      <svg className="absolute h-full w-full -rotate-90" viewBox="0 0 100 100">
         <circle
-          className="text-white/20"
+          className="text-on_primary/20"
           strokeWidth="8"
           stroke="currentColor"
           fill="transparent"
@@ -63,7 +62,7 @@ const ScrollToTop = () => {
           cy="50"
         />
         <circle
-          className="text-white transition-all duration-300"
+          className="text-on_primary transition-all duration-300"
           strokeWidth="8"
           strokeDasharray={264}
           strokeDashoffset={strokeOffset}
@@ -75,9 +74,9 @@ const ScrollToTop = () => {
           cy="50"
         />
       </svg>
-      
+
       <svg
-        className="w-5 h-5 text-white relative"
+        className="relative h-5 w-5 text-on_primary"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -94,4 +93,4 @@ const ScrollToTop = () => {
   );
 };
 
-export default ScrollToTop; 
+export default ScrollToTop;

@@ -1,26 +1,46 @@
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaAngular, FaAws, FaJava, FaAndroid } from 'react-icons/fa';
-import { SiGit, SiGithub, SiTypescript, SiExpress, SiMongodb, SiKotlin } from 'react-icons/si';
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaNodeJs,
+  FaAngular,
+  FaAws,
+  FaJava,
+  FaAndroid,
+  FaLinux,
+} from "react-icons/fa";
+import {
+  SiGit,
+  SiGithub,
+  SiTypescript,
+  SiExpress,
+  SiMongodb,
+  SiKotlin,
+} from "react-icons/si";
 import { FaGolang } from "react-icons/fa6";
-import { FcLinux } from 'react-icons/fc';
 import { BiLogoPostgresql } from "react-icons/bi";
 
+const iconClass = "h-5 w-5 shrink-0";
+
 export const SkillIcons: Record<string, JSX.Element> = {
-    HTML: <FaHtml5 className="text-[#E34F26]" />,
-    CSS: <FaCss3Alt className="text-[#1572B6]" />,
-    JavaScript: <FaJs className="text-[#F7DF1E]" />,
-    TypeScript: <SiTypescript className="text-[#3178C6]" />,
-    React: <FaReact className="text-[#61DAFB]" />,
-    Angular: <FaAngular className="text-[#DD0031]" />,
-    Node: <FaNodeJs className="text-[#339933]" />,
-    Express: <SiExpress className="text-[#000000]" />,
-    MongoDB: <SiMongodb className="text-[#47A248]" />,
-    Java: <FaJava className="text-[#ED8B00]" />,
-    Go: <FaGolang className="text-[#00ADD8]" />,
-    SQL: <BiLogoPostgresql className="text-[#4479A1]" />,
-    Git: <SiGit className="text-[#F05032]" />,
-    GitHub: <SiGithub className="text-[#181717]" />,
-    Linux: <FcLinux />,
-    AWS: <FaAws className="text-[#FF9900]" />,
-    Android: <FaAndroid className="text-[#3DDC84]" />,
-    Kotlin: <SiKotlin className="text-[#7F52FF]" />,
+  HTML: <FaHtml5 className={iconClass} />,
+  CSS: <FaCss3Alt className={iconClass} />,
+  JavaScript: <FaJs className={iconClass} />,
+  TypeScript: <SiTypescript className={iconClass} />,
+  React: <FaReact className={iconClass} />,
+  Angular: <FaAngular className={iconClass} />,
+  Node: <FaNodeJs className={iconClass} />,
+  Express: <SiExpress className={iconClass} />,
+  MongoDB: <SiMongodb className={iconClass} />,
+  Java: <FaJava className={iconClass} />,
+  Go: <FaGolang className={iconClass} />,
+  SQL: <BiLogoPostgresql className={iconClass} />,
+  Git: <SiGit className={iconClass} />,
+  GitHub: <SiGithub className={iconClass} />,
+  Linux: <FaLinux className={iconClass} />,
+  AWS: <FaAws className={iconClass} />,
+  Android: <FaAndroid className={iconClass} />,
+  Kotlin: <SiKotlin className={iconClass} />,
+  'React Native': <FaReact className={iconClass} />
 };

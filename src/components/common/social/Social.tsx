@@ -1,30 +1,25 @@
 import { SocialData } from "../../../constants/Social.ts";
 
-const Social = ({ bg = 'dark', className = '' }) => {
-  const isLight = bg === 'light';
+type Props = { bg?: "dark" | "light"; className?: string };
 
-  const baseStyles =
-    'group p-3 rounded-full transition-colors duration-300 border';
-
-  const lightStyles =
-    'text-black border-black hover:text-white hover:border-white hover:bg-black';
-
-  const darkStyles =
-    'text-white border-white hover:text-black hover:border-black hover:bg-white';
-
-  const combinedClass = `${baseStyles} ${isLight ? lightStyles : darkStyles}`;
+const Social = ({ bg = "dark", className = "" }: Props) => {
+  const isLight = bg === "light";
 
   return (
-    <div className={`flex space-x-4 ${className}`}>
+    <div className={`flex flex-wrap gap-3 ${className}`}>
       {SocialData.map(({ href, Icon }, index) => (
         <a
           key={index}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={combinedClass}
+          className={`ghost-border flex h-11 w-11 items-center justify-center transition-colors duration-button ${
+            isLight
+              ? "text-primary hover:bg-surface_container_low"
+              : "text-on_primary hover:bg-primary_fixed"
+          }`}
         >
-          <Icon size={20} />
+          <Icon size={18} />
         </a>
       ))}
     </div>

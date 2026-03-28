@@ -1,7 +1,20 @@
-import { useState, useEffect } from "react";
-import { FaGithub, FaExternalLinkAlt, FaRegStar } from "react-icons/fa";
-import { SkillIcons } from "../../../constants/Skills.tsx";
+import React, { useState, useEffect } from "react";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { fetchProjects } from "../../../api/fetchProjects.ts";
+
+/** Web only: 6-col grid — odd rows 4+2 (2/3 + 1/3), even rows 2+4 (1/3 + 2/3). */
+const projectColSpanClass = (index: number, total: number) => {
+  const alone = total % 2 === 1 && index === total - 1;
+  if (alone) return "md:col-span-6";
+
+  const row = Math.floor(index / 2);
+  const firstInPair = index % 2 === 0;
+  const oddRow = row % 2 === 0;
+  if (oddRow) {
+    return firstInPair ? "md:col-span-4" : "md:col-span-2";
+  }
+  return firstInPair ? "md:col-span-2" : "md:col-span-4";
+};
 
 const Projects = () => {
   const [projectsData, setProjectsData] = useState<any[]>([]);
@@ -11,91 +24,114 @@ const Projects = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-gray-100" id="projects">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-heading font-bold text-primary mb-12 text-center">
-          Recent Work
-        </h2>
+    <section className="bg-surface_container_low py-20 md:py-28" id="projects">
+      <div className="mx-auto max-w-[1400px] px-6 font-body">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-primary md:text-3xl">
+            Projects
+          </h2>
+          <p className="text-label-md text-outline">Scroll to explore work</p>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto font-body">
-          {projectsData.map((project) => (
-            <div
-              key={project.id}
-              className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 relative"
-            >
-              {/* Project Image */}
-              <div className="relative w-full h-52">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-                {/* Status Badge */}
-                {project.status && (
-                  <span
-                    className={`absolute top-4 left-4 px-3 py-1 text-md font-normal rounded-full ${project.status === "Completed"
-                      ? "bg-green-100 text-green-700"
-                      : "bg-yellow-100 text-yellow-700"
+        <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-6 md:items-stretch md:gap-4">
+          {projectsData.map((project, index) => {
+            const dark = Boolean(project.featured);
+            return (
+              <article
+                key={project.id}
+                className={`group flex min-h-[200px] flex-col overflow-hidden transition-transform duration-button md:min-h-0 md:h-full ${projectColSpanClass(
+                  index,
+                  projectsData.length
+                )} ${
+                  dark
+                    ? "bg-primary text-on_primary"
+                    : "bg-surface_container_highest text-primary"
+                }`}
+              >
+                {/* <div
+                  className={`relative w-full shrink-0 overflow-hidden ${
+                    dark
+                      ? "aspect-[16/10] md:aspect-auto md:min-h-[220px]"
+                      : "h-48 md:h-56"
+                  }`}
+                >
+                  <img
+                    src={project.image}
+                    alt=""
+                    className="h-full w-full object-cover grayscale transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                  {project.status ? (
+                    <span
+                      className={`absolute left-4 top-4 px-3 py-1 text-label-md ${
+                        dark
+                          ? "bg-on_primary/10 text-on_primary"
+                          : "bg-surface/90 text-primary"
                       }`}
-                  >
-                    {project.status}
-                  </span>
-                )}
-                {/* Star Icon Instead of Featured Text */}
-                {project.featured && (
-                  <span className="absolute top-4 right-4 bg-purple-200 text-purple-700 text-2xl hover:scale-110 transition-transform duration-300 p-2 rounded-3xl">
-                    <FaRegStar
-                      title="Featured Project"
-                    />
-                  </span>
-                )}
-              </div>
+                    >
+                      {project.status}
+                    </span>
+                  ) : null}
+                </div> */}
 
-              {/* Project Details */}
-              <div className="px-6 py-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <h1 className="text-xl font-bold">{project.title}</h1>
-                    <div className="flex items-center gap-3">
+                <div className="flex flex-1 flex-col p-6 md:p-8">
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <h3 className="font-display text-lg font-bold uppercase tracking-tight md:text-xl">
+                      {`0${index + 1} // ${project.title}`}
+                    </h3>
+                    <div className="flex gap-3">
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 text-black hover:text-gray-600 transition-colors text-sm font-medium"
+                        className={`transition-opacity hover:opacity-70 ${
+                          dark ? "text-on_primary" : "text-primary"
+                        }`}
+                        aria-label="GitHub"
                       >
-                        <FaGithub className="text-[20px]" />
+                        <FaGithub className="h-5 w-5" />
                       </a>
-                      {project.liveUrl && (
+                      {project.liveUrl ? (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2 text-gray-700 hover:text-primary transition-colors text-sm"
+                          className={`transition-opacity hover:opacity-70 ${
+                            dark ? "text-on_primary" : "text-primary"
+                          }`}
+                          aria-label="Live site"
                         >
-                          <FaExternalLinkAlt className="text-[16px]" />
+                          <FaExternalLinkAlt className="h-4 w-4" />
                         </a>
-                      )}
+                      ) : null}
                     </div>
                   </div>
-                  <p className="text-gray-600 text-sm mb-4">{project.description}</p>
 
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-3 mb-4 place-items-center">
-                    {project.technologies.map((tech) => (
+                  <p
+                    className={`mt-3 text-body-md ${
+                      dark ? "text-on_primary/85" : "text-on_surface"
+                    }`}
+                  >
+                    {project.description}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.technologies.map((tech: string) => (
                       <span
                         key={tech}
-                        className="cursor-pointer text-3xl"
+                        className={`px-3 py-1 text-label-md ${
+                          dark
+                            ? "bg-on_primary/10 text-on_primary"
+                            : "bg-surface_container_high text-primary"
+                        }`}
                       >
-                        {SkillIcons[tech] || (
-                          <span className="text-gray-500">{tech}</span>
-                        )}
+                        {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

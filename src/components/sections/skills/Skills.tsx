@@ -1,25 +1,32 @@
+import { SkillCategories } from "../../../constants/SkillCategories.ts";
 import { SkillIcons } from "../../../constants/Skills.tsx";
 
 const Skills = () => {
-
   return (
-    <section className="py-20 bg-gray-50" id="skills">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-heading font-bold text-primary mb-4">
-            Tools & Technologies
-          </h2>
-        </div>
+    <section className="bg-primary py-20 text-on_primary md:py-28" id="skills">
+      <div className="mx-auto max-w-[1400px] px-6 font-body">
+        <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-on_primary md:text-4xl md:leading-tight">
+          Technical Skills
+        </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 max-w-4xl mx-auto font-body">
-          {Object.keys(SkillIcons).map((skill, index) => (
-            <div
-              key={index}
-              className="bg-gray-100 p-6 rounded-md shadow-md hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center gap-2 hover:-translate-y-1"
-            >
-              {/* {skill.icon} */}
-              <span className="text-4xl">{SkillIcons[skill]}</span>
-              <span className="text-medium font-normal text-gray-800">{skill}</span>
+        <div className="mt-14 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {SkillCategories.map((cat) => (
+            <div key={cat.title}>
+              <h3 className="text-label-md text-on_primary/70">{cat.title}</h3>
+              <ul className="mt-6 space-y-3">
+                {cat.items.map((item) => (
+                  <li key={item}>
+                    <div className="group flex cursor-default items-center justify-between gap-3 bg-primary_container/60 px-3 py-3 text-body-md text-on_primary transition-colors duration-button hover:bg-primary_container">
+                      <span className="flex items-center gap-3">
+                        <span className="text-on_primary [&_svg]:text-current">
+                          {SkillIcons[item]}
+                        </span>
+                        <span>{item}</span>
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
@@ -28,4 +35,4 @@ const Skills = () => {
   );
 };
 
-export default Skills; 
+export default Skills;
