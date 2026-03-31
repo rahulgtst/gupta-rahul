@@ -16,7 +16,7 @@ const Experience = () => {
     <section className="bg-surface py-20 md:py-28" id="archive">
       <div className="mx-auto max-w-[1400px] px-6 font-body">
         <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-primary md:text-3xl">
-          Education &amp; experience
+          Experience
         </h2>
         <p className="mt-3 max-w-2xl text-body-md text-on_surface">
           Roles and milestones — a linear archive of where I&apos;ve built and
